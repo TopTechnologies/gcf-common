@@ -1,0 +1,11 @@
+{
+  "name": "gcf-common-lib",
+  "version": "0.0.1",
+  "engines": {},
+  "scripts": {},
+  "dependencies": {
+    "@google-cloud/pubsub": "^1.2.0",
+    "@google-cloud/storage": "^4.1.3"
+  },
+  "devDependencies": {}
+}
