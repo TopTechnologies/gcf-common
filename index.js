@@ -59,22 +59,22 @@ var GcfCommon = /** @class */ (function () {
         });
     };
     GcfCommon.getTopic = function (event, context) {
-        var _a, _b, _c, _d;
+        var _a, _b;
         return __awaiter(this, void 0, void 0, function () {
             var pubSub, topicName, storage, file, meta;
-            return __generator(this, function (_e) {
-                switch (_e.label) {
+            return __generator(this, function (_c) {
+                switch (_c.label) {
                     case 0:
                         pubSub = new pubsub_1.PubSub();
-                        if (!(((_b = (_a = context) === null || _a === void 0 ? void 0 : _a.resource) === null || _b === void 0 ? void 0 : _b.type) === 'storage#object')) return [3 /*break*/, 2];
+                        if (!(((_a = context === null || context === void 0 ? void 0 : context.resource) === null || _a === void 0 ? void 0 : _a.type) === 'storage#object')) return [3 /*break*/, 2];
                         storage = new storage_1.Storage();
                         file = storage.bucket(event.bucket).file(event.name);
                         return [4 /*yield*/, file.getMetadata()];
                     case 1:
-                        meta = (_e.sent())[0];
-                        topicName = (_d = (_c = meta) === null || _c === void 0 ? void 0 : _c.metadata) === null || _d === void 0 ? void 0 : _d.topic;
+                        meta = (_c.sent())[0];
+                        topicName = (_b = meta === null || meta === void 0 ? void 0 : meta.metadata) === null || _b === void 0 ? void 0 : _b.topic;
                         console.log('topic:', topicName);
-                        _e.label = 2;
+                        _c.label = 2;
                     case 2: return [2 /*return*/, pubSub.topic(topicName)];
                 }
             });
