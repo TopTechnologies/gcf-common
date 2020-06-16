@@ -20,7 +20,9 @@ export class GcfCommon {
             console.log('topic:', topicName);
         }
 
-        return pubSub.topic(topicName);
+        const tpc = pubSub.topic(topicName);
+        await tpc.setMetadata({labels: {date: topicName.split('__')[1]}});
+        return tpc;
     }
 
     static async delay(s: number = 540) {

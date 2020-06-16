@@ -61,7 +61,7 @@ var GcfCommon = /** @class */ (function () {
     GcfCommon.getTopic = function (event, context) {
         var _a, _b;
         return __awaiter(this, void 0, void 0, function () {
-            var pubSub, topicName, storage, file, meta;
+            var pubSub, topicName, storage, file, meta, tpc;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
@@ -75,7 +75,12 @@ var GcfCommon = /** @class */ (function () {
                         topicName = (_b = meta === null || meta === void 0 ? void 0 : meta.metadata) === null || _b === void 0 ? void 0 : _b.topic;
                         console.log('topic:', topicName);
                         _c.label = 2;
-                    case 2: return [2 /*return*/, pubSub.topic(topicName)];
+                    case 2:
+                        tpc = pubSub.topic(topicName);
+                        return [4 /*yield*/, tpc.setMetadata({ labels: { date: topicName.split('__')[1] } })];
+                    case 3:
+                        _c.sent();
+                        return [2 /*return*/, tpc];
                 }
             });
         });
