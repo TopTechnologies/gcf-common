@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GcfCommon = void 0;
 var storage_1 = require("@google-cloud/storage");
 var pubsub_1 = require("@google-cloud/pubsub");
 var GcfCommon = /** @class */ (function () {
